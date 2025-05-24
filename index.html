@@ -8,7 +8,7 @@
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Does Thinking More Always Help? Understanding Test-Time Scaling in Reasoning Models" />
     <meta property="og:description" content="We investigate whether extended thinking at test-time truly improves reasoning in AI models. Our research reveals the illusion of extended thinking and introduces parallel thinking as an effective alternative, achieving up to 20% higher accuracy." />
-    <meta property="og:image" content="https://avinashreddydev.github.io/scaling-mirage/bon.jpg" />
+    <meta property="og:image" content="https://avinashreddydev.github.io/scaling-mirage/og.jpeg" />
     <meta property="og:image:alt" content="Comparison of test-time scaling strategies showing parallel thinking vs extended thinking approaches" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -29,7 +29,7 @@
     <meta property="article:tag" content="Machine Learning" />
     
     <!-- WhatsApp-optimized Open Graph Tags -->
-    <meta property="og:image:secure_url" content="https://avinashreddydev.github.io/scaling-mirage/bon.jpg" />
+    <meta property="og:image:secure_url" content="https://avinashreddydev.github.io/scaling-mirage/og.jpeg" />
     <meta property="og:video" content="" />
     <meta property="og:audio" content="" />
     
@@ -42,7 +42,7 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Does Thinking More Always Help? Understanding Test-Time Scaling in Reasoning Models" />
     <meta name="twitter:description" content="Research on test-time scaling in reasoning models, revealing the illusion of extended thinking and introducing parallel thinking for better performance." />
-    <meta name="twitter:image" content="https://avinashreddydev.github.io/scaling-mirage/bon.jpg" />
+    <meta name="twitter:image" content="https://avinashreddydev.github.io/scaling-mirage/og.jpeg" />
     <meta name="twitter:image:alt" content="Comparison of test-time scaling strategies" />
     
     <!-- Additional Meta Tags -->
@@ -51,101 +51,83 @@
     <meta name="author" content="Soumya Surva Ghosal, Souradip Chakraborthy, Avinash Reddy, et al." />
     
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+
+    <style type="text/tailwindcss">
+        @theme {
+          --color-primary: #363636;
+        }
+      </style>
     <title>Does Thinking More Always Help? Understanding Test-Time Scaling in Reasoning Models</title>
 </head>
 
 <body class="bg-gray-50 min-h-screen">
     <div class="max-w-6xl mx-auto bg-white shadow-lg">
         <!-- Header -->
-        <div class="bg-gradient-to-r from-blue-900 to-blue-700 text-white p-8">
+        <div class="p-8">
             <div class="text-center">
-                <h1 class="text-4xl font-bold mb-6 leading-tight">
-                    Does Thinking More <em>always</em> Help? <br> 
-                    <span class="text-blue-200">Understanding Test-Time Scaling in Reasoning Models</span>
+                <h1 class="text-5xl text-primary font-normal mb-8 leading-tight">
+                    Does Thinking More <em>Always</em> Help?<br>
+                    <span class="">Understanding Test-Time Scaling in Reasoning Models</span>
                 </h1>
-
+                
+                <!-- Venue Badge
+                <div class="mb-8">
+                    <span class="  px-6 py-2 rounded-lg font-semibold text-lg">
+                        Under Submission 2025
+                    </span>
+                </div> -->
+                
                 <!-- Authors Section -->
-                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 text-sm gap-4 mb-6 text-center">
-                    <div class="mb-3">
-                        <a href="https://soumya1612-rasha.github.io/Soumya/"
-                            class="text-blue-200 hover:text-white font-semibold text-sm block">Soumya Surva Ghosal</a>
-                        <a href="https://www.umd.edu/" class="text-blue-300 hover:text-blue-100 text-xs">University of
-                            Maryland</a>
-                    </div>
-                    <div class="mb-3">
-                        <span class="font-semibold text-sm block">Souradip Chakraborthy</span>
-                        <a href="https://www.umd.edu/" class="text-blue-300 hover:text-blue-100 text-xs">University of
-                            Maryland</a>
-                    </div>
-                    <div class="mb-3">
-                        <span class="font-semibold text-sm block">Avinash Reddy</span>
-                        <a href="https://www.ucf.edu/" class="text-blue-300 hover:text-blue-100 text-xs">University of
-                            Central Florida</a>
-                    </div>
-                    <div class="mb-3">
-                        <span class="font-semibold text-sm block">Yifu Li</span>
-                        <a href="https://umich.edu/" class="text-blue-300 hover:text-blue-100 text-xs">University of
-                            Michigan</a>
-                    </div>
-                    <div class="mb-3">
-                        <span class="font-semibold text-sm block">Mengi Wang</span>
-                        <a href="https://www.princeton.edu/" class="text-blue-300 hover:text-blue-100 text-xs">Princeton
-                            University</a>
-                    </div>
-                    <div class="mb-3">
-                        <span class="font-semibold text-sm block">Dinesh Manocha</span>
-                        <a href="https://www.umd.edu/" class="text-blue-300 hover:text-blue-100 text-xs">University of
-                            Maryland</a>
-                    </div>
-                    <div class="mb-3">
-                        <span class="font-semibold text-sm block">Furong Huang</span>
-                        <a href="https://www.umd.edu/" class="text-blue-300 hover:text-blue-100 text-xs">University of
-                            Maryland</a>
-                    </div>
-                    <div class="mb-3">
-                        <span class="font-semibold text-sm block">Mohammad Ghavamzadeh</span>
-                        <a href="https://www.amazon.science/" class="text-blue-300 hover:text-blue-100 text-xs">Amazon
-                            AGI</a>
-                    </div>
-                    <div class="mb-3">
-                        <span class="font-semibold text-sm block">Amrit Singh Bedi</span>
-                        <a href="https://www.ucf.edu/" class="text-blue-300 hover:text-blue-100 text-xs">University of
-                            Central Florida</a>
-                    </div>
+                <div class="mb-8 text-lg leading-relaxed">
+                    <p class=" mb-4">
+                        <span class="font-normal text-blue-400">Soumya Surva Ghosal</span><sup class="text-xs">1</sup>, 
+                        <span class="font-normal text-blue-400">Souradip Chakraborthy</span><sup class="text-xs">1</sup>, 
+                        <span class="font-normal text-blue-400">Avinash Reddy</span><sup class="text-xs">2</sup>, 
+                        <span class="font-normal text-blue-400">Yifu Li</span><sup class="text-xs">3</sup>,<br>
+                        <span class="font-normal text-blue-400">Mengi Wang</span><sup class="text-xs">4</sup>, 
+                        <span class="font-normal text-blue-400">Dinesh Manocha</span><sup class="text-xs">1</sup>, 
+                        <span class="font-normal text-blue-400">Furong Huang</span><sup class="text-xs">1</sup>,<br>
+                        <span class="font-normal text-blue-400">Mohammad Ghavamzadeh</span><sup class="text-xs">5</sup>, 
+                        <span class="font-normal text-blue-400">Amrit Singh Bedi</span><sup class="text-xs">2</sup>
+                    </p>
                 </div>
 
-                <!-- Institutions Summary -->
-                <!-- <div class="text-blue-200 text-sm mb-4">
-            <p>
-              <a href="https://www.umd.edu/" class="hover:text-white">University of Maryland</a>, 
-              <a href="https://www.ucf.edu/" class="hover:text-white">University of Central Florida</a>, 
-              <a href="https://umich.edu/" class="hover:text-white">University of Michigan</a>,
-            </p>
-            <p>
-              <a href="https://www.princeton.edu/" class="hover:text-white">Princeton University</a>, 
-              <a href="https://www.amazon.science/" class="hover:text-white">Amazon AGI</a>
-            </p>
-          </div> -->
+                <!-- Institutions -->
+                <div class=" text-base mb-6 leading-relaxed">
+                    <p>
+                        <sup class="text-xs">1</sup><a href="https://www.umd.edu/" >University of Maryland</a> &nbsp;&nbsp;
+                        <sup class="text-xs">2</sup><a href="https://www.ucf.edu/" >University of Central Florida</a> &nbsp;&nbsp;
+                        <sup class="text-xs">3</sup><a href="https://umich.edu/" >University of Michigan</a>
+                    </p>
+                    <p>
+                        <sup class="text-xs">4</sup><a href="https://www.princeton.edu/" class="">Princeton University</a> &nbsp;&nbsp;
+                        <sup class="text-xs">5</sup><a href="https://www.amazon.science/" class="">Amazon AGI</a>
+                    </p>
+                </div>
 
-                <p class="text-blue-200 font-semibold mb-6">Under Submission 2025</p>
-                <!-- <p class="text-xs text-blue-300">*Indicates Equal Contribution</p> -->
+                <!-- Contribution Notes -->
+                <!-- <div class=" text-sm mb-6 italic">
+                    <p>* denotes equal contribution</p>
+                    <p>† denotes equal advising</p>
+                </div> -->
 
                 <!-- Navigation Buttons -->
                 <div class="flex flex-wrap justify-center gap-4 mt-6">
                     <a href="#"
-                        class="bg-white text-blue-900 px-6 py-2 rounded-lg font-semibold hover:bg-blue-50 transition-colors">
+                        class="bg-gray-800 text-white  px-6 py-2 rounded-full  font-semibold    transition-colors">
                         📄 Paper
                     </a>
                     <a href="#"
-                        class="bg-white text-blue-900 px-6 py-2 rounded-lg font-semibold hover:bg-blue-50 transition-colors">
+                        class="bg-gray-800 text-white  px-6 py-2 rounded-full  font-semibold transition-colors">
                         💾 Supplementary
                     </a>
                     <a href="#"
-                        class="bg-white text-blue-900 px-6 py-2 rounded-lg font-semibold hover:bg-blue-50 transition-colors">
+                        class="bg-gray-800 text-white  px-6 py-2 rounded-full  font-semibold transition-colors">
                         💻 Code
                     </a>
                     <a href="#"
-                        class="bg-white text-blue-900 px-6 py-2 rounded-lg font-semibold hover:bg-blue-50 transition-colors">
+                        class="bg-gray-800 text-white  px-6 py-2 rounded-full  font-semibold transition-colors">
                         📊 arXiv
                     </a>
                 </div>
@@ -162,7 +144,7 @@
 
             <div class="max-w-4xl mx-auto text-justify leading-relaxed text-gray-700 space-y-4 text-lg">
 
-                <h1 class="text-2xl font-bold mb-6 text-center text-gray-800 underline">Abstract</h1>
+                <h1 class="text-3xl font-semibold mb-6 text-center text-primary underline">Abstract</h1>
                 <p>
                     Recent trends in test-time scaling for reasoning models (e.g., OpenAI o1, DeepSeek R1) have led to a
                     popular belief that extending thinking traces using prompts like "Wait" or "Let me rethink" can
@@ -197,7 +179,7 @@
         <div class="flex flex-col items-center justify-center max-w-4xl mx-auto">
             <div class="p-8 border-b border-gray-200 block">
                 <!-- <h2 class="text-3xl font-bold mb-6 text-center text-gray-800">Key Findings</h2> -->
-                <h2 class="text-3xl font-bold mb-6 text-center text-gray-800">
+                <h2 class="text-3xl font-semibold mb-6 text-center text-primary">
                     Does thinking more at test-time truly lead to better reasoning?
                 </h2>
                 
@@ -232,7 +214,7 @@
 
 
             <div class="p-8 border-b border-gray-400 block">
-                <h2 class="text-3xl font-bold mb-6 text-center text-gray-800">Proposed Method : Parallel Thinking</h2>
+                <h2 class="text-3xl font-semibold mb-6 text-center text-primary">Proposed Method : Parallel Thinking</h2>
                 <img src="https://avinashreddydev.github.io/scaling-mirage/bon.png" alt="Main Results"
                     class="w-full h-auto">
                 <p> <b>Figure 2:</b> Comparing test-time scaling strategies. We compare test-time scaling using "Wait &
@@ -281,7 +263,7 @@
 
     <!-- BibTeX Section -->
     <div class="p-8 bg-gray-50">
-        <h2 class="text-3xl font-bold mb-6 text-center text-gray-800">BibTeX</h2>
+        <h2 class="text-3xl font-semibold mb-6 text-center text-primary">BibTeX</h2>
         <div class="bg-gray-100 p-6 rounded-lg border max-w-4xl mx-auto">
             <pre class="text-sm text-gray-700 overflow-x-auto"><code>@article{ghosal2025testtime,
   title={Test-Time Scaling in Reasoning Models: The Illusion of Extended Thinking},
@@ -293,33 +275,33 @@
     </div>
 
     <!-- Footer -->
-    <div class="bg-gradient-to-r from-gray-900 to-gray-800 text-white">
+    <div class="bg-gray-800 text-white">
         <div class="max-w-6xl mx-auto px-6 py-8">
             <!-- Main Footer Content -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-6">
                 <!-- Research Group Info -->
                 <div class="text-center md:text-left">
-                    <h3 class="text-lg font-semibold mb-3 text-blue-300">Research Group</h3>
+                    <h3 class="text-lg font-semibold mb-3 text-white">Research Group</h3>
                     <p class="text-gray-300 text-sm mb-2">SaferrAI Lab</p>
-                    <a href="https://saferrai-lab.org/" class="text-blue-400 hover:text-blue-300 text-sm transition-colors">
+                    <a href="https://saferrai-lab.org/" class="text-white hover:text-gray-300 text-sm transition-colors">
                         🌐 saferrai-lab.org
                     </a>
                 </div>
                 
                 <!-- Paper Info -->
                 <div class="text-center">
-                    <h3 class="text-lg font-semibold mb-3 text-blue-300">Publication</h3>
-                    <p class="text-gray-300 text-sm mb-2">Under Submission 2025</p>
+                    <h3 class="text-lg font-semibold mb-3 text-white">Publication</h3>
+                    <!-- <p class="text-gray-300 text-sm mb-2">Under Submission 2025</p> -->
                     <p class="text-gray-400 text-xs">Test-Time Scaling in Reasoning Models</p>
                 </div>
                 
                 <!-- Links -->
                 <div class="text-center md:text-right">
-                    <h3 class="text-lg font-semibold mb-3 text-blue-300">Resources</h3>
+                    <h3 class="text-lg font-semibold mb-3 text-white">Resources</h3>
                     <div class="space-y-2">
-                        <a href="#" class="block text-blue-400 hover:text-blue-300 text-sm transition-colors">📄 Paper</a>
-                        <a href="#" class="block text-blue-400 hover:text-blue-300 text-sm transition-colors">💻 Code</a>
-                        <a href="#" class="block text-blue-400 hover:text-blue-300 text-sm transition-colors">📊 arXiv</a>
+                        <a href="#" class="block text-white hover:text-gray-300 text-sm transition-colors">📄 Paper</a>
+                        <a href="#" class="block text-white hover:text-gray-300 text-sm transition-colors">💻 Code</a>
+                        <a href="#" class="block text-white hover:text-gray-300 text-sm transition-colors">📊 arXiv</a>
                     </div>
                 </div>
             </div>
@@ -342,7 +324,7 @@
             
             <!-- Decorative Element -->
             <div class="mt-6 flex justify-center">
-                <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-blue-300 rounded-full"></div>
+                <div class="w-24 h-1 bg-white rounded-full"></div>
             </div>
         </div>
     </div>
