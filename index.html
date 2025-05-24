@@ -1,0 +1,305 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Does Thinking More  <em>always</em>  Help? </br> Understanding Test-Time Scaling in Reasoning Models</title>
+</head>
+
+<body class="bg-gray-50 min-h-screen">
+    <div class="max-w-6xl mx-auto bg-white shadow-lg">
+        <!-- Header -->
+        <div class="bg-gradient-to-r from-blue-900 to-blue-700 text-white p-8">
+            <div class="text-center">
+                <h1 class="text-4xl font-bold mb-6 leading-tight">
+                    Does Thinking More <em>always</em> Help? <br> 
+                    <span class="text-blue-200">Understanding Test-Time Scaling in Reasoning Models</span>
+                </h1>
+
+                <!-- Authors Section -->
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 text-sm gap-4 mb-6 text-center">
+                    <div class="mb-3">
+                        <a href="https://soumya1612-rasha.github.io/Soumya/"
+                            class="text-blue-200 hover:text-white font-semibold text-sm block">Soumya Surva Ghosal</a>
+                        <a href="https://www.umd.edu/" class="text-blue-300 hover:text-blue-100 text-xs">University of
+                            Maryland</a>
+                    </div>
+                    <div class="mb-3">
+                        <span class="font-semibold text-sm block">Souradip Chakraborthy</span>
+                        <a href="https://www.umd.edu/" class="text-blue-300 hover:text-blue-100 text-xs">University of
+                            Maryland</a>
+                    </div>
+                    <div class="mb-3">
+                        <span class="font-semibold text-sm block">Avinash Reddy</span>
+                        <a href="https://www.ucf.edu/" class="text-blue-300 hover:text-blue-100 text-xs">University of
+                            Central Florida</a>
+                    </div>
+                    <div class="mb-3">
+                        <span class="font-semibold text-sm block">Yifu Li</span>
+                        <a href="https://umich.edu/" class="text-blue-300 hover:text-blue-100 text-xs">University of
+                            Michigan</a>
+                    </div>
+                    <div class="mb-3">
+                        <span class="font-semibold text-sm block">Mengi Wang</span>
+                        <a href="https://www.princeton.edu/" class="text-blue-300 hover:text-blue-100 text-xs">Princeton
+                            University</a>
+                    </div>
+                    <div class="mb-3">
+                        <span class="font-semibold text-sm block">Dinesh Manocha</span>
+                        <a href="https://www.umd.edu/" class="text-blue-300 hover:text-blue-100 text-xs">University of
+                            Maryland</a>
+                    </div>
+                    <div class="mb-3">
+                        <span class="font-semibold text-sm block">Furong Huang</span>
+                        <a href="https://www.umd.edu/" class="text-blue-300 hover:text-blue-100 text-xs">University of
+                            Maryland</a>
+                    </div>
+                    <div class="mb-3">
+                        <span class="font-semibold text-sm block">Mohammad Ghavamzadeh</span>
+                        <a href="https://www.amazon.science/" class="text-blue-300 hover:text-blue-100 text-xs">Amazon
+                            AGI</a>
+                    </div>
+                    <div class="mb-3">
+                        <span class="font-semibold text-sm block">Amrit Singh Bedi</span>
+                        <a href="https://www.ucf.edu/" class="text-blue-300 hover:text-blue-100 text-xs">University of
+                            Central Florida</a>
+                    </div>
+                </div>
+
+                <!-- Institutions Summary -->
+                <!-- <div class="text-blue-200 text-sm mb-4">
+            <p>
+              <a href="https://www.umd.edu/" class="hover:text-white">University of Maryland</a>, 
+              <a href="https://www.ucf.edu/" class="hover:text-white">University of Central Florida</a>, 
+              <a href="https://umich.edu/" class="hover:text-white">University of Michigan</a>,
+            </p>
+            <p>
+              <a href="https://www.princeton.edu/" class="hover:text-white">Princeton University</a>, 
+              <a href="https://www.amazon.science/" class="hover:text-white">Amazon AGI</a>
+            </p>
+          </div> -->
+
+                <p class="text-blue-200 font-semibold mb-6">Under Submission 2025</p>
+                <!-- <p class="text-xs text-blue-300">*Indicates Equal Contribution</p> -->
+
+                <!-- Navigation Buttons -->
+                <div class="flex flex-wrap justify-center gap-4 mt-6">
+                    <a href="#"
+                        class="bg-white text-blue-900 px-6 py-2 rounded-lg font-semibold hover:bg-blue-50 transition-colors">
+                        📄 Paper
+                    </a>
+                    <a href="#"
+                        class="bg-white text-blue-900 px-6 py-2 rounded-lg font-semibold hover:bg-blue-50 transition-colors">
+                        💾 Supplementary
+                    </a>
+                    <a href="#"
+                        class="bg-white text-blue-900 px-6 py-2 rounded-lg font-semibold hover:bg-blue-50 transition-colors">
+                        💻 Code
+                    </a>
+                    <a href="#"
+                        class="bg-white text-blue-900 px-6 py-2 rounded-lg font-semibold hover:bg-blue-50 transition-colors">
+                        📊 arXiv
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Abstract Section -->
+        <div class="p-8 border-b border-gray-200 flex flex-col items-center justify-center max-w-4xl mx-auto">
+            
+
+            
+
+
+
+            <div class="max-w-4xl mx-auto text-justify leading-relaxed text-gray-700 space-y-4 text-lg">
+
+                <h1 class="text-2xl font-bold mb-6 text-center text-gray-800 underline">Abstract</h1>
+                <p>
+                    Recent trends in test-time scaling for reasoning models (e.g., OpenAI o1, DeepSeek R1) have led to a
+                    popular belief that extending thinking traces using prompts like "Wait" or "Let me rethink" can
+                    improve performance. This raises a natural question: <em>Does thinking more at test-time truly lead
+                        to better reasoning?</em>
+                </p>
+                <p>
+                    To answer this question, we perform a detailed empirical study across models and benchmarks, which
+                    reveals a consistent pattern of initial performance improvements from additional thinking followed
+                    by a decline, due to <em>overthinking</em>. To understand this non-monotonic trend, we consider a
+                    simple probabilistic model, which reveals that additional thinking increases output
+                    variance—creating an illusion of improved reasoning while ultimately undermining precision.
+                </p>
+                <p>
+                    Thus, observed gains from "more thinking" are not true indicators of improved reasoning, but
+                    artifacts stemming from the connection between model uncertainty and evaluation metric. This
+                    suggests that test-time scaling through extended thinking is not an effective way to utilize the
+                    inference thinking budget.
+                </p>
+                <p>
+                    Recognizing these limitations, we introduce an alternative test-time scaling approach, <em>parallel
+                        thinking</em>, inspired by Best-of-N sampling. Our method generates multiple independent
+                    reasoning paths within the same inference budget and selects the most consistent response via
+                    majority vote, achieving up to <strong>20%</strong> higher accuracy compared to extended thinking.
+                    This provides a simple yet effective mechanism for test-time scaling of reasoning models.
+                </p>
+            </div>
+        </div>
+
+        <!-- Main Results Figure -->
+
+        <div class="flex flex-col items-center justify-center max-w-4xl mx-auto">
+            <div class="p-8 border-b border-gray-200 block">
+                <!-- <h2 class="text-3xl font-bold mb-6 text-center text-gray-800">Key Findings</h2> -->
+                <h2 class="text-3xl font-bold mb-6 text-center text-gray-800">
+                    Does thinking more at test-time truly lead to better reasoning?
+                </h2>
+                
+                <img src="/Users/avinashreddy/Desktop/apps/scaling-mirage/key-findings.png" alt="Main Results"
+                    class="w-full h-auto">
+                <p> <b>Figure 1:</b> Results for Wait & Think more. To investigate the variation in accuracy with
+                    increasing
+                    average
+                    thinking tokens generated during inference, we plot accuracy as a function of thinking tokens across
+                    three
+                    datasets: GSM-8K [ 5], MATH-500 [ 20], and AIME [ 15 ]. The average has been taken over all prompts
+                    in
+                    the
+                    test dataset. We report results for three SoTA open-source reasoning models:
+                    DeepSeek-R1-Distill-Qwen-1.5B
+                    (1st row), DeepSeek-R1-Distill-Qwen-7B (2nd row), and DeepSeek-R1-Distill-Llama-8B model (3rd row)
+                    [8].
+                    During test-time, following Muennighoff et al. [22], we induce the model to generate more thinking
+                    tokens by
+                    suppressing the end-of-thinking token delimiter (</think>) and instead appending "Wait" to the
+                    model's
+                    current thinking trace to encourage additional thinking. The baseline with no budget control
+                    (standard
+                    thinking)
+                    is marked by ⋆. Successive salmon circles to the right of the star correspond to one, two, . . .
+                    additional "Wait"
+                    insertions to the model's thinking trace. From our experiments, we note that accuracy initially
+                    rises as
+                    the model
+                    is prompted to think longer, but then gradually falls off for all settings.</p>
+            </div>
+
+
+            <div class="p-8 border-b border-gray-400 block">
+                <h2 class="text-3xl font-bold mb-6 text-center text-gray-800">Proposed Method : Parallel Thinking</h2>
+                <img src="/Users/avinashreddy/Desktop/apps/scaling-mirage/bon.png" alt="Main Results"
+                    class="w-full h-auto">
+                <p> <b>Figure 2:</b> Comparing test-time scaling strategies. We compare test-time scaling using "Wait &
+                    Think more"
+                    and parallel thinking across three benchmark datasets (GSM-8K [5], MATH-500 [ 10], and AIME 2024 [15
+                    ])
+                    and three state-of-the-art reasoning models: DeepSeek-R1-Distill-Qwen-1.5B (first row),
+                    DeepSeek-R1-Distill-
+                    Qwen-7B (second row), and DeepSeek-R1-Distill-Llama-8B (third row). Each plot shows average accuracy
+                    (y-axis) against average thinking tokens (x-axis) as the thinking budget is progressively increased,
+                    with averages
+                    taken across all test set prompts. Baseline performance without budget control (standard thinking)
+                    is
+                    marked by
+                    a black star. Additional thinking using "Wait & Think More" is shown as salmon circles, while
+                    parallel
+                    scaling
+                    is represented by green circles. Unlike sequential scaling, which can degrade performance with
+                    overthinking,
+                    parallel scaling consistently maintains or improves accuracy as the budget increases.
+                </p>
+            </div>
+
+
+            <div class="p-8 border-b border-gray-400 block max-w-4xl mx-auto flex flex-col items-center justify-center" >
+                <img src="/Users/avinashreddy/Desktop/apps/scaling-mirage/budget_new.png" alt="Abstract"
+                    class="w-1/2 h-auto my-4">
+                <p class="text-center  mt-4"> <b>Figure 3:</b>
+                    Effective utilization of test-time budget: Given a fixed
+                    inference budget of 16K tokens, parallel thinking results in around
+                    22% and 47% more accuracy compared to Wait & Think more and
+                    Exact thinking TTBC respectively.
+                </p>
+            </div>
+
+
+        </div>
+
+
+        <!-- <p class="text-center text-gray-600 mt-4 italic">
+            Comparison of extended thinking vs. parallel thinking approaches across different reasoning benchmarks.
+        </p> -->
+    </div>
+
+   
+
+    <!-- BibTeX Section -->
+    <div class="p-8 bg-gray-50">
+        <h2 class="text-3xl font-bold mb-6 text-center text-gray-800">BibTeX</h2>
+        <div class="bg-gray-100 p-6 rounded-lg border max-w-4xl mx-auto">
+            <pre class="text-sm text-gray-700 overflow-x-auto"><code>@article{ghosal2025testtime,
+  title={Test-Time Scaling in Reasoning Models: The Illusion of Extended Thinking},
+  author={Ghosal, Soumya Surva and Chakraborthy, Souradip and Reddy, Avinash and Li, Yifu and Wang, Mengi and Manocha, Dinesh and Huang, Furong and Ghavamzadeh, Mohammad and Bedi, Amrit Singh},
+  journal={Under Submission},
+  year={2025}
+}</code></pre>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="bg-gradient-to-r from-gray-900 to-gray-800 text-white">
+        <div class="max-w-6xl mx-auto px-6 py-8">
+            <!-- Main Footer Content -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-6">
+                <!-- Research Group Info -->
+                <div class="text-center md:text-left">
+                    <h3 class="text-lg font-semibold mb-3 text-blue-300">Research Group</h3>
+                    <p class="text-gray-300 text-sm mb-2">SaferrAI Lab</p>
+                    <a href="https://saferrai-lab.org/" class="text-blue-400 hover:text-blue-300 text-sm transition-colors">
+                        🌐 saferrai-lab.org
+                    </a>
+                </div>
+                
+                <!-- Paper Info -->
+                <div class="text-center">
+                    <h3 class="text-lg font-semibold mb-3 text-blue-300">Publication</h3>
+                    <p class="text-gray-300 text-sm mb-2">Under Submission 2025</p>
+                    <p class="text-gray-400 text-xs">Test-Time Scaling in Reasoning Models</p>
+                </div>
+                
+                <!-- Links -->
+                <div class="text-center md:text-right">
+                    <h3 class="text-lg font-semibold mb-3 text-blue-300">Resources</h3>
+                    <div class="space-y-2">
+                        <a href="#" class="block text-blue-400 hover:text-blue-300 text-sm transition-colors">📄 Paper</a>
+                        <a href="#" class="block text-blue-400 hover:text-blue-300 text-sm transition-colors">💻 Code</a>
+                        <a href="#" class="block text-blue-400 hover:text-blue-300 text-sm transition-colors">📊 arXiv</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Divider -->
+            <div class="border-t border-gray-600 mb-6"></div>
+            
+            <!-- Bottom Footer -->
+            <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                <!-- Copyright -->
+                <div class="text-center md:text-left">
+                    <p class="text-gray-400 text-sm">
+                        © 2025 SaferrAI Lab. All rights reserved.
+                    </p>
+                </div>
+                
+                <!-- Template Attribution -->
+                
+            </div>
+            
+            <!-- Decorative Element -->
+            <div class="mt-6 flex justify-center">
+                <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-blue-300 rounded-full"></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
